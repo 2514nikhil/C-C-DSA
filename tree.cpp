@@ -105,18 +105,15 @@ int main() {
 	printf("\nPostorder Traversal: ");
 	postorder(root);
 
-	// 1. Search
 	int key = 40;
 	struct Node* found = search(root, key);
 	printf("\n\nSearch %d: %s", key, found ? "Found" : "Not Found");
 
-	// 2. Min and Max
 	struct Node* minNode = find_min(root);
 	struct Node* maxNode = find_max(root);
 	printf("\nMin: %d", minNode ? minNode->data : -1);
 	printf("\nMax: %d", maxNode ? maxNode->data : -1);
 
-	// 3. Delete
 	root = delete_node(root, 30);
 	printf("\nInorder after deleting 30: ");
 	inorder(root);

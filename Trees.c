@@ -61,6 +61,20 @@ void post_order(struct Node *root)
         printf("%d ", root->data);
     }
 }
+struct Node* search(struct Node* root, int key) {
+	if (root == NULL || root->data == key) return root;
+	if (key < root->data) 
+    return search(root->left, key);
+	return search(root->right, key);
+}
+struct Node* find_min(struct Node* root) {
+	while (root && root->left) root = root->left;
+	return root;
+}
+struct Node* find_max(struct Node* root) {
+	while (root && root->right) root = root->right;
+	return root;
+}
 int main()
 {
     struct Node *root = NULL;
@@ -77,5 +91,9 @@ int main()
     pre_order(root);
     printf("Post_order: ");
     post_order(root);
+    printf("\nMinimun");
+    find_min(root);
+    printf("\nMaximum");
+    find_max(root);
     return 0;
 }
